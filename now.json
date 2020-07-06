@@ -1,0 +1,16 @@
+{
+  "version": "2.0.0",
+  "name": "consultorio-medico-demo",
+  "builds": [
+      {
+          "src": "dist/main.js",
+          "use":"@now/node"
+      }
+  ],
+  "router" : [
+      {
+          "src": "/(.*)",
+          "dest": "dist/main.js"
+      }
+  ]
+}
