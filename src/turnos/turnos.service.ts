@@ -41,7 +41,7 @@ export class TurnosService {
         const turnos = await this.turnoModel.find().and([
             { 'especialistaId': { $eq: especialistaId } },
             { 'dateInSeconds': { $lt: this.currentDate } }
-        ]).limit(count).sort({ dateInSeconds: 1 }).populate('obraSocial').populate('consulta').populate('especialistaId', 'nombre apellido');
+        ]).limit(count).sort({ dateInSeconds: -1 }).populate('obraSocial').populate('consulta').populate('especialistaId', 'nombre apellido');
 
         return turnos;
     }
