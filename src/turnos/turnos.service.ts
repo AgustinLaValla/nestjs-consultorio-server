@@ -15,7 +15,7 @@ export class TurnosService {
     constructor(
         @InjectModel('Turno') private turnoModel: Model<Turno>,
         @Inject(forwardRef(() => PacientsService)) private pacientsService: PacientsService,
-        ) { }
+    ) { }
 
     async getMiembroTurnos(especialistaId: string, count: number): Promise<Turno[]> {
 
@@ -34,7 +34,7 @@ export class TurnosService {
     }
 
     async getTurnosCounterValue(especialistaId: string): Promise<Number> {
-        return await this.turnoModel.estimatedDocumentCount({ especialistaId: { $eq: especialistaId } });
+        return await this.turnoModel.countDocuments({ especialistaId });
     }
 
     async getOldTurnos(especialistaId: string, count: number = 15): Promise<Turno[]> {
@@ -142,8 +142,8 @@ export class TurnosService {
     }
 
     async updatePacientTurnosCollection(oldDni: string, dni: string) {
-        console.log({oldDni, dni})
-         await this.turnoModel.updateMany({ dni:oldDni }, { dni: dni });
+        console.log({ oldDni, dni })
+        await this.turnoModel.updateMany({ dni: oldDni }, { dni: dni });
     }
 
     async deleteTurno(turnoId: string): Promise<Turno> {
