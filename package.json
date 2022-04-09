@@ -31,7 +31,7 @@
     "cloudinary": "^1.22.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
-    "moment": "^2.27.0",
+    "moment": "^2.29.2",
     "mongoose": "^5.9.20",
     "mongoose-unique-validator": "^2.0.3",
     "reflect-metadata": "^0.1.13",
